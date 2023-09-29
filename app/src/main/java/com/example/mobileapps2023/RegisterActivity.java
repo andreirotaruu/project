@@ -75,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
                     editTextRegisterPwd.requestFocus();
 
                 }else{
-                    //progressBar.setVisibility(View.VISIBLE);
+
                     registerUser(textEmail,textFname,textPassword, textLname);
                     
                 }

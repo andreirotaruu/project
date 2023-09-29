@@ -82,7 +82,7 @@ public class  MainActivity2 extends AppCompatActivity {
         }
 
             private void loginUser(String textEmail, String textPassword) {
-                auth.signInWithEmailAndPassword(textPassword, textEmail).addOnCompleteListener(MainActivity2.this, new OnCompleteListener<AuthResult>() {
+                auth.signInWithEmailAndPassword(textEmail, textPassword).addOnCompleteListener(MainActivity2.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
