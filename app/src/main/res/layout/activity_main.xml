@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.AppCompat.Light"
+    tools:context=".MainActivity2"
+    android:background="@drawable/back">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_app_name"
+            android:text="Mobile Apps Period 2 2023-2024"
+            android:textColor="@color/purple_700"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:gravity="center"
+            android:layout_marginTop="50dp"/>
+
+
+        <ImageView
+            android:id="@+id/imageView_Logo"
+            android:layout_width="315dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="75dp"
+            android:adjustViewBounds="true"
+            android:elevation="10dp"
+            android:maxWidth="2000dp"
+            android:src="@drawable/logo" />
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border"
+            android:gravity="center">
+
+            <EditText
+                android:inputType="textEmailAddress"
+                android:id="@+id/editText_login_email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/textView_main_head"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:hint="Email"
+                android:padding="5dp" />
+
+            <EditText
+                android:id="@+id/editText_login_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/editText_login_email"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="5dp" />
+
+            <ImageView
+                android:id="@+id/imageView_show_hide_pwd"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/editText_login_email"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="33dp"
+                android:layout_marginEnd="30dp"
+
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/button_login"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editText_login_pwd"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="Login" />
+
+
+            <TextView
+                android:id="@+id/textView_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/button_login"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Not a user yet?" />
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:elevation="10dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/textView_main_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="Welcome to mobile apps 2023"
+                android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+                android:textColor="@color/purple_200" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
