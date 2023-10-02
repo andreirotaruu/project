@@ -28,6 +28,8 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText editTextRegisterEmail, editTextRegisterPwd,editTextRegisterLastName, editTextRegisterFirstName;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
+
+    private FirebaseUser firebaseUser
     private DatabaseReference database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,7 +123,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void writeNewUser(String textEmail, String textFname) {
         User user = new User(textFname, textEmail);
-        database.child("users").child(""+user.getID()).setValue(user);
+        database.child("users").child(firebaseUser.getUid()).child("Email").setValue(textEmail)
     }
 
     private void showHidePassword() {

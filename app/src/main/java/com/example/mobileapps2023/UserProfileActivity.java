@@ -1,5 +1,6 @@
 package com.example.mobileapps2023;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,8 +14,11 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.FirebaseUserMetadata;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -83,6 +87,40 @@ public class UserProfileActivity extends AppCompatActivity {
         textViewFirstName.setText(name);
         textViewWelcome.setText(welcome);
         progressBar.setVisibility(View.GONE);
+        database.child("users").child(firebaseUser.getUid()).child("Username").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                textViewFirstName.setText(snapshot.getValue().toString());
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(UserProfileActivity.this, "Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        database.child("users").child(firebaseUser.getUid()).child("Username").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                textViewLastName.setText(snapshot.getValue().toString());
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(UserProfileActivity.this, "Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        database.child("users").child(firebaseUser.getUid()).child("Username").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                textViewEmail.setText(snapshot.getValue().toString());
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(UserProfileActivity.this, "Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
 
     }
 

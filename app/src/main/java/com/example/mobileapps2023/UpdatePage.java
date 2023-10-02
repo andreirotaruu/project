@@ -82,13 +82,13 @@ public class UpdatePage extends AppCompatActivity {
                     Toast.makeText(UpdatePage.this, "Change Your Email", Toast.LENGTH_SHORT).show();
                     editTextEmail.setError("New Email is Required");
                 }else if (TextUtils.isEmpty(textFirstName)) {
-                    Toast.makeText(UpdatePage.this, "Change Your Email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdatePage.this, "Change Your First Name", Toast.LENGTH_SHORT).show();
                     editTextEmail.setError("New First Name is Required");
                 }else if(TextUtils.isEmpty(textLastName)) {
-                    Toast.makeText(UpdatePage.this, "Change Your Email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdatePage.this, "Change Your Last Name", Toast.LENGTH_SHORT).show();
                     editTextEmail.setError("New Last Name is Required");
                 }else if(TextUtils.isEmpty(textPwd)) {
-                    Toast.makeText(UpdatePage.this, "Change Your Email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdatePage.this, "Change Your Password", Toast.LENGTH_SHORT).show();
                     editTextEmail.setError("New Password is Required");
                 }else  if((textPwd.length() < 6)) {
                     Toast.makeText(UpdatePage.this, "Please enter your password longer than 6 characters", Toast.LENGTH_SHORT).show();
@@ -107,7 +107,11 @@ public class UpdatePage extends AppCompatActivity {
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(textFirstName + " " + textLastName).build();
         firebaseUser.updateProfile(profileUpdates);
-        auth.signInWithEmailAndPassword(textPassword, textEmail).addOnCompleteListener(UpdatePage.this, new OnCompleteListener<AuthResult>() {
+        firebaseUser.updateEmail(textEmail);
+        database.child("users").child(firebaseUser.getUid()).child("Email").setValue(textEmail);
+
+
+        auth.signInWithEmailAndPassword(textEmail, textPassword).addOnCompleteListener(UpdatePage.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
